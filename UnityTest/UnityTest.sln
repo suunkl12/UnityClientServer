@@ -1,11 +1,11 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{B2371EF7-8CFE-E2EB-3103-FF566006AD2C}") = "UnityTest", "Assembly-CSharp-firstpass.csproj", "{8404194C-D4AB-B1B1-8B9B-12C1579D88DA}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{8404194C-D4AB-B1B1-8B9B-12C1579D88DA}"
 EndProject
-Project("{B2371EF7-8CFE-E2EB-3103-FF566006AD2C}") = "UnityTest", "Assembly-CSharp.csproj", "{03FB2056-251D-5424-624C-AD3996B1095C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{03FB2056-251D-5424-624C-AD3996B1095C}"
 EndProject
-Project("{B2371EF7-8CFE-E2EB-3103-FF566006AD2C}") = "UnityTest", "Assembly-CSharp-Editor.csproj", "{5BCC3040-CF24-59AA-FBEB-0FD0002ED0FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{5BCC3040-CF24-59AA-FBEB-0FD0002ED0FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																										GlobalSection(MonoDevelopProperties) = preSolution
+	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
@@ -48,5 +48,4 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
-
 EndGlobal
