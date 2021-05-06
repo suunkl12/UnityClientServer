@@ -18,15 +18,18 @@ public class Client {
     private InputStream inputStream;
     private OutputStream outputStream;
     private String id = UUID.randomUUID().toString();
+    
+    
     public volatile Position position;
-    public volatile Rotation rotation;
+    public volatile float rotation;
+    
     public Client(Socket client, ReceiveListener listener) throws IOException {
         this.client = client;
         this.listener = listener;
         inputStream = client.getInputStream();
         outputStream = client.getOutputStream();
         position = new Position();
-        rotation = new Rotation();
+        //rotation = new Rotation();
         new ReadThread().start();
         sendStart();
     }
@@ -37,6 +40,8 @@ public class Client {
 
     private void sendStart(){
         try {
+            //<editor-fold defaultstate="collapsed" desc="Old sending">
+            /*
             JSONObject json = new JSONObject();
             json.put("action", "start");
             json.put("id", id);
@@ -52,6 +57,9 @@ public class Client {
             rot.put("W", rotation.w);
             json.put("rotation", rot);
             sendToClient(json.toString());
+            */
+//</editor-fold>
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -71,19 +79,28 @@ public class Client {
         }
     }
 
+    //Used to read data from the client
     private class ReadThread extends Thread{
 
         @Override
         public void run() {
             super.run();
             byte[] bytes = new byte[1024];
+            
+            //Read data sent by the client
             while (!client.isClosed()){
                 try {
                     int data = inputStream.read(bytes);
+                    
+                    // -1 is when no data is recieved
                     if (data != -1){
+                        
                         String string = new String(bytes, 0, data);
                         System.out.println(string);
-                        JSONObject jsonObject = new JSONObject(string);
+                        
+                        
+                        //JSONObject jsonObject = new JSONObject(string);
+/*
                         JSONObject pos = jsonObject.optJSONObject("position");
                             position.x = pos.optString("X");
                             position.y = pos.optString("Y");
@@ -94,8 +111,15 @@ public class Client {
                             rotation.y = rot.optString("Y");
                             rotation.z = rot.optString("Z");
                             rotation.w = rot.optString("W");
+*/
+                        rotation =  new Float(string);
+                        String str = String.valueOf(rotation);
+                        sendToClient(str);
+                        
+                        //listener.dataReceive(Client.this, string);
+                        
+                        
 
-                        listener.dataReceive(Client.this, string);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

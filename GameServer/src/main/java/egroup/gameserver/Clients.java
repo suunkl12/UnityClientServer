@@ -39,24 +39,30 @@ public class Clients implements ReceiveListener {
         System.out.println("sendConnectNewPlayer");
         JSONObject json = new JSONObject();
         try {
+            
+            //<editor-fold defaultstate="collapsed" desc="Old connect new player">
+            /*
             json.put("id", client.getId());
             json.put("action", "newPlayer");
             json.put("TAG", "sendConnectNewPlayer");
             JSONObject pos = new JSONObject();
             synchronized (client.position) {
-                pos.put("X", client.position.x);
-                pos.put("Y", client.position.y);
-                pos.put("Z", client.position.z);
+            pos.put("X", client.position.x);
+            pos.put("Y", client.position.y);
+            pos.put("Z", client.position.z);
             }
             json.put("position", pos);
             JSONObject rot = new JSONObject();
             synchronized (client.rotation) {
-                rot.put("X", client.rotation.x);
-                rot.put("Y", client.rotation.y);
-                rot.put("Z", client.rotation.z);
-                rot.put("W", client.rotation.w);
+            rot.put("X", client.rotation.x);
+            rot.put("Y", client.rotation.y);
+            rot.put("Z", client.rotation.z);
+            rot.put("W", client.rotation.w);
             }
             json.put("rotation", rot);
+            */
+//</editor-fold>
+            
             sendBroadcast(client, json.toString());
         } catch (JSONException e) {
             e.printStackTrace();
@@ -67,6 +73,9 @@ public class Clients implements ReceiveListener {
         System.out.println("getAllPlayers");
         for(Client item : clients){
             if(item != client) {
+                
+                
+                /*
                 JSONObject json = new JSONObject();
                 try {
                     json.put("id", client.getId());
@@ -89,6 +98,7 @@ public class Clients implements ReceiveListener {
                     e.printStackTrace();
                 }
                 client.sendToClient(json.toString());
+                */
             }
         }
     }

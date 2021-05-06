@@ -87,7 +87,7 @@ public class EventListener : MonoBehaviour {
 						parseData(result);
 					}
 				}
-			}catch (Exception ex){
+			}catch (Exception){
 
 			}
 		}
